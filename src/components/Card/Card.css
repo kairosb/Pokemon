@@ -1,0 +1,35 @@
+.card {
+    text-align: center;
+    margin: 0 32px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 8px; 
+    cursor: pointer; 
+}
+
+.card:hover {
+    background-color: #888585;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card h2 {
+    margin-top: 8px;
+    margin-bottom: 0; 
+}
+
+.card .favoritar {
+    padding: 0 1em;
+}
+
+.card .icon {
+    width: 25px;
+}
+
+.link {
+    text-decoration: none;
+    color: #000;
+    text-align: left;
+}
