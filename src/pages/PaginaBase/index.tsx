@@ -1,15 +1,15 @@
 import Cabecalho from "components/Cabecalho";
 import Rodape from "components/Rodape";
 import { Outlet } from "react-router-dom";
-import './PaginaBase.css'
+import { Wrapper } from "components/components.style";
 
 function PaginaBase() {
     return (
-        <main className="todo">
+        <Wrapper>
             <Cabecalho />
             <Outlet />
             <Rodape />
-        </main>
+        </Wrapper>
     )
 }
 

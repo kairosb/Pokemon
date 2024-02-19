@@ -40,3 +40,37 @@ export const FavoriteIcon = styled.img`
     width: 25px;
 `;
 
+export const Header = styled.header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1em 20em;
+    background-color: #b40303;
+    height: 100px;
+`;
+
+export const Logo = styled.img`
+    width: 200px;
+    height: auto;
+`;
+
+export const Navigation = styled.nav``;
+
+export const Footer = styled.footer`
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+
+`;
+
+export const H2 = styled.h2 `
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+`;
+
+export const Wrapper = styled.main `
+    background-color: #cccaca;
+`;
+
+

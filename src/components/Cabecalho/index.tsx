@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom';
-import './Cabecalho.css';
 import CabecalhoLink from 'components/CabecalhoLink'
 import logo from './logo-pokemon.png';
+import { Logo, Header, Navigation } from 'components/components.style';
 
 function Cabecalho(){
     return(
-        <header className='cabecalho'>
+        <Header>
             <Link to="./">
-                <img src={logo} alt="Logo Pokemon" className='imagem'></img>
+                <Logo src={logo} alt="Logo Pokemon"></Logo>
             </Link>
-            <nav>
+            <Navigation>
                 <CabecalhoLink url="./">
                     Home
                 </CabecalhoLink>
                 <CabecalhoLink url="./Favoritos">
                     Favoritos
                 </CabecalhoLink>
-            </nav>
+            </Navigation>
 
-        </header>
+        </Header>
     )
 }
 

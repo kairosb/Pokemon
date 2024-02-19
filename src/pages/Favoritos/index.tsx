@@ -1,5 +1,4 @@
 import { useFavoritoContext } from 'contexts/Favorito';
-import './Favoritos.css'
 import Card from 'components/Card';
 import {Container, Grid} from 'components/components.style'
 

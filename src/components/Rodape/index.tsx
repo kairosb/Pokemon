@@ -1,10 +1,10 @@
-import './Rodape.css'
+import { Footer, H2 } from "components/components.style";
 
 function Rodape() {
     return (
-        <footer className='rodape'>
-            <h2>Desenvolvido por KairoGod.</h2>
-        </footer>
+        <Footer>
+            <H2>Desenvolvido por KairoGod.</H2>
+        </Footer>
     )
 }
 
