@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './Card.css';
 import axios from 'axios';
 import iconeFavoritar from './favoritar.png';
 import iconeDesfavoritar from './desfavoritar.png';
 import { useFavoritoContext } from 'contexts/Favorito';
+import {CardContainer, CardImage, CardTitle, FavoriteIcon} from 'components/components.style'
 
 interface CardProps {
     name: string;
@@ -40,14 +40,12 @@ export const Card = ({ name, url }: CardProps) => {
     const icone = !ehFavorito ? iconeFavoritar : iconeDesfavoritar;
 
     return (
-        <div className="card">
-                <img src={pokemon?.sprites.front_default} alt={name} className='capa' />
-                <h2>{name}</h2>
-            <img
+        <CardContainer>
+                <CardImage src={pokemon?.sprites.front_default} alt={name} className='capa' />
+                <CardTitle>{name}</CardTitle>
+            <FavoriteIcon
                 src={icone}
                 alt="Favoritar Pokémon"
-                className='favoritar icon'
-                style={{ width: '25px' }}
                 onClick={() => {
                     if (pokemon) {
                         adicionarFavorito({
@@ -59,7 +57,7 @@ export const Card = ({ name, url }: CardProps) => {
                     }
                 }}
             />
-        </div>
+        </CardContainer>
     );
 };
 
