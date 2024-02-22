@@ -39,6 +39,8 @@ export const Card = ({ name, url }: CardProps) => {
     const ehFavorito = favorito.some((fav) => fav.id === pokemon?.id);
     const icone = !ehFavorito ? iconeFavoritar : iconeDesfavoritar;
 
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+
     return (
         <CardContainer>
                 <CardImage src={pokemon?.sprites.front_default} alt={name} className='capa' />

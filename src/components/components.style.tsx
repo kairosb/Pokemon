@@ -5,6 +5,8 @@ export const Container = styled.div`
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;  
+    align-items: flex-end; 
+    position: relative;
 `;
 
 export const Grid = styled.div`
@@ -72,5 +74,3 @@ export const H2 = styled.h2 `
 export const Wrapper = styled.main `
     background-color: #cccaca;
 `;
-
-
