@@ -5,6 +5,7 @@ import { Container, Grid } from 'components/components.style'
 import { IconButton } from '@mui/material';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import { createTheme } from '@mui/material/styles';
+//import { useSearch } from 'contexts/Search';
 
 declare module '@mui/material/styles' {
     interface Palette {
@@ -35,13 +36,13 @@ interface Pokemon {
 
 export const Inicio = () => {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-
     const LIMIT = 15;
     const [OFFSET, setOFFSET] = useState(0);
     const [LOAD, setLOAD] = useState(false);
+    //const { searchTerm } = useSearch();
 
     useEffect(() => {
-        const procurandoPokemons = async () => {
+        const fetchPokemons = async () => {
             try {
                 setLOAD(true);
                 const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${OFFSET}&limit=${LIMIT}`);
@@ -53,7 +54,7 @@ export const Inicio = () => {
             }
         };
 
-        procurandoPokemons();
+        fetchPokemons();
     }, [OFFSET]);
 
     const increaseOffSet = () => {
@@ -66,32 +67,40 @@ export const Inicio = () => {
 
     return (
         <Container>
-
-            {
-                OFFSET >= LIMIT ? <IconButton style={{ color: theme.palette.custom.main }} onClick={() => {
-                    decreaseOffSet();
-                    window.scrollTo(0, 0);
-                }
-                }><ArrowBack></ArrowBack></IconButton>
-                    : <></>
-            }
-
-            {
-                LOAD ? (<div>Loading...</div>) : (<Grid>
+            {OFFSET >= LIMIT ? (
+                <IconButton
+                    style={{ color: theme.palette.custom.main }}
+                    onClick={() => {
+                        decreaseOffSet();
+                        window.scrollTo(0, 0);
+                    }}
+                >
+                    <ArrowBack />
+                </IconButton>
+            ) : (
+                <></>
+            )}
+            {LOAD ? (
+                <div>Loading...</div>
+            ) : (
+                <Grid>
                     {pokemons.map((pokemon) => (
                         <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} />
                     ))}
-                </Grid>)
-            }
-
-
-            <IconButton style={{ color: theme.palette.custom.main }} onClick={() => {
-                increaseOffSet();
-                window.scrollTo(0, 0);
-            }
-            }> <ArrowForward></ArrowForward> </IconButton>
+                </Grid>
+            )}
+            <IconButton
+                style={{ color: theme.palette.custom.main }}
+                onClick={() => {
+                    increaseOffSet();
+                    window.scrollTo(0, 0);
+                }}
+            >
+                <ArrowForward />
+            </IconButton>
         </Container>
-    )
-}
+    );
+};
+
 
 export default Inicio;
