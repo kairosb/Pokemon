@@ -35,6 +35,8 @@ export const CardImage = styled.img`
 export const CardTitle = styled.h2`
     margin-top: 8px;
     margin-bottom: 0;
+    text-align: center;
+    width: 100%;
 `;
 
 export const FavoriteIcon = styled.img`
@@ -62,15 +64,23 @@ export const Footer = styled.footer`
     display: flex;
     justify-content: center;
     background-color: #000000;
+    margin-top: auto;
 
 `;
 
-export const H2 = styled.h2 `
+export const H2 = styled.h2`
     font-weight: 400;
     font-size: 18px;
     color: #FFFFFF;
 `;
 
-export const Wrapper = styled.main `
+export const Wrapper = styled.main`
     background-color: #cccaca;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
 `;
+
+
+
+

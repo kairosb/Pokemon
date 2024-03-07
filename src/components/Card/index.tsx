@@ -3,7 +3,8 @@ import axios from 'axios';
 import iconeFavoritar from './favoritar.png';
 import iconeDesfavoritar from './desfavoritar.png';
 import { useFavoritoContext } from 'contexts/Favorito';
-import {CardContainer, CardImage, CardTitle, FavoriteIcon} from 'components/components.style'
+import { CardContainer, CardImage, CardTitle, FavoriteIcon } from 'components/components.style'
+import { useNavigate } from 'react-router-dom';
 
 interface CardProps {
     name: string;
@@ -41,10 +42,18 @@ export const Card = ({ name, url }: CardProps) => {
 
     name = name.charAt(0).toUpperCase() + name.slice(1);
 
+    const navigation = useNavigate();
+
     return (
         <CardContainer>
-                <CardImage src={pokemon?.sprites.front_default} alt={name} className='capa' />
+            <div onClick={
+                () => {
+                    navigation(`${name.toLocaleLowerCase()}`)
+                }
+            }>
+                <CardImage src={pokemon?.sprites.front_default} alt={name} />
                 <CardTitle>{name}</CardTitle>
+            </div>
             <FavoriteIcon
                 src={icone}
                 alt="Favoritar Pokémon"

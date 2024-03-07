@@ -6,7 +6,6 @@ import { alpha, styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { useState } from 'react';
-import { useSearch } from 'contexts/Search';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -58,11 +57,8 @@ function Cabecalho() {
 
     const [search, setSearch] = useState<string>('');
 
-    const { handleSearchChange } = useSearch();
-
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value);
-        handleSearchChange(event.target.value);
     };
 
 
@@ -90,8 +86,8 @@ function Cabecalho() {
                     value={search}
                     onChange={handleInputChange}
                     onKeyDown={(event) => {
-                        if(event.key === 'Enter' && search !== ''){
-                            navigation(`search/${search.toLowerCase()}`)
+                        if (event.key === 'Enter' && search !== '') {
+                            navigation(`${search.toLowerCase()}`)
                         }
                     }}
                 />
